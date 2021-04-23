@@ -5,6 +5,7 @@ import android.os.SystemClock.sleep
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 class ChatInterface:AppCompatActivity() , View.OnClickListener{
 
     private val msgList=ArrayList<Msg>()
-
+    private var isSend:Boolean=true
     private var adapter:MsgAdapter?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,22 @@ class ChatInterface:AppCompatActivity() , View.OnClickListener{
         val backButton:Button=findViewById(R.id.titleBack)
         backButton.setOnClickListener {
             finish()
+        }
+        val menuButton:Button=findViewById(R.id.titleEdit)
+        menuButton.setOnClickListener {
+           val popupMenu:PopupMenu= PopupMenu(this,menuButton)
+            popupMenu.menuInflater.inflate(R.menu.menuforchats,popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
+                when (item.itemId) {
+                    R.id.sender ->
+                        setStatusSend(true)
+                    R.id.receiver ->
+                        setStatusSend(false)
+                    else->
+                        true
+                }
+            })
+            popupMenu.show()
         }
 
         initMsg()
@@ -45,7 +62,7 @@ class ChatInterface:AppCompatActivity() , View.OnClickListener{
             send->{
                 val content=inputText.text.toString()
                 if(content.isNotEmpty()){
-                    val msg=Msg(content,Msg.TYPE_SENT)
+                    val msg=Msg(content,checkStatusSend())
                     msgList.add(msg)
                     adapter?.notifyItemInserted(msgList.size-1)
                     recyclerView.scrollToPosition(msgList.size-1)
@@ -56,6 +73,16 @@ class ChatInterface:AppCompatActivity() , View.OnClickListener{
         }
     }
 
+    private fun checkStatusSend():Int{
+        if(isSend)
+            return Msg.TYPE_SENT
+        else
+            return Msg.TYPE_RECEIVED
+    }
+    private fun setStatusSend(sender:Boolean):Boolean{
+        isSend=sender
+        return true
+    }
     private fun initMsg() {
 
         val msg1 = Msg("Hello guy.", Msg.TYPE_RECEIVED)
@@ -65,4 +92,5 @@ class ChatInterface:AppCompatActivity() , View.OnClickListener{
         val msg3 = Msg("This is Tom. Nice talking to you. ", Msg.TYPE_RECEIVED)
         msgList.add(msg3)
     }
+
 }

@@ -121,6 +121,7 @@ layout文件的路径在：
     chat1nterface.xml
     msg_left_item.xml
     msg_right_item.xml
+    /app/src/main/res/menu/menuforchats.xml
     ```
 
-    运行截图：![聊天界面](screenShot/4.7.png)
+    运行截图：![聊天界面](screenShot/4.7.png)      ![转换发送模式](screenShot/4.7.2.png)
