@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#6AC8E6D2">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4.2 常见控件"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_margin="5dp"
+        android:textColor="#fff"
+        android:background="@drawable/edit_bg"
+        android:layout_gravity="left"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:padding="10dp"
+        android:textSize="16sp"
+        android:layout_margin="5dp"
+        android:background="@color/teal_700"
+        android:text="4.3 三种基本布局" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:layout_gravity="left"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:textColor="#fff"
+        android:background="@color/purple_700"
+        android:text="4.4 自定义控件"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button4"
+        android:layout_gravity="left"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@color/purple_200"
+        android:text="4.5 ListView简介"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button5"
+        android:layout_gravity="left"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:background="@color/black"
+        android:text="4.6 滚动控件:RecyclerView"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button6"
+        android:layout_gravity="left"
+        android:padding="10dp"
+        android:layout_margin="5dp"
+        android:textSize="16sp"
+        android:background="#EF9A9A"
+        android:textColor="#FFEBEE"
+        android:text="4.7 编写界面的最佳实践：聊天界面"/>
+
+</LinearLayout>
